@@ -17,3 +17,12 @@
 * 진행중인 프로젝트 CRD
 * 일정 CRD
 * 프로젝트에 연관된 일정 목록 조회
+
+## ERD
+Todo table와 Project table이 있으며, Todo table이 Project table id를 외래키로 가지고 있습니다.
+
+그림 추가 예정
+
+
+## 이슈
+

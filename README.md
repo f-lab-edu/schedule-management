@@ -23,6 +23,10 @@ Todo table와 Project table이 있으며, Todo table이 Project table id를 외�
 
 그림 추가 예정
 
+## 브랜치 명명 규칙
+* 혼자 작업하므로 main, feature 두 종류의 브랜치를 사용
+* feature 브랜치 명명 규칙
+    * feature/{#issue number}/{goal of branch}
 
 ## 이슈
 

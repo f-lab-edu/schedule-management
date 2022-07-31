@@ -19,9 +19,11 @@
 * 프로젝트에 연관된 일정 목록 조회
 
 ## ERD
+
+<img width="391" alt="스크린샷 2022-08-01 오전 12 25 56" src="https://user-images.githubusercontent.com/22387547/182033592-de3966a1-5da1-41b6-b147-97013229d0c2.png">
+
 Todo table와 Project table이 있으며, Todo table이 Project table id를 외래키로 가지고 있습니다.
 
-그림 추가 예정
 
 ## 브랜치 명명 규칙
 * 혼자 작업하므로 main, feature 두 종류의 브랜치를 사용

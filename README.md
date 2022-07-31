@@ -32,3 +32,4 @@ Todo table와 Project table이 있으며, Todo table이 Project table id를 외�
 
 ## 이슈
 
+MyBatis mapper scan 문제 [#6](https://github.com/f-lab-edu/schedule-management/issues/6)

@@ -10,7 +10,7 @@ public interface TodoMapper {
 
     List<Todo> findAll();
     Todo findById(Long id);
-    int insertTodo(@Param("Todo") Todo todo);
+    int insertTodo(Todo todo);
     int deleteTodo(Long id);
 
 }

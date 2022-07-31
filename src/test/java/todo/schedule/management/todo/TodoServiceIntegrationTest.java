@@ -10,15 +10,16 @@ import todo.schedule.management.dto.TodoDto;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @SpringBootTest
 public class TodoServiceIntegrationTest {
 
-//    private final TodoMapper todoMapper;
     private final TodoService todoService;
 
     @Autowired
-    public TodoServiceIntegrationTest(TodoMapper todoMapper, TodoService todoService) {
-//        this.todoMapper = todoMapper;
+    public TodoServiceIntegrationTest(TodoService todoService) {
         this.todoService = todoService;
     }
 
@@ -27,9 +28,10 @@ public class TodoServiceIntegrationTest {
     @Test
     void findAllTodoList(){
         List<TodoDto.Response> todoList = todoService.getAllTodoList();
-//        List<Todo> todoList1 = todoMapper.findAll();
-        System.out.println(todoList);
-//        System.out.println(todoList1);
+        for(TodoDto.Response response : todoList){
+            assertNotNull(response);
+            assertNotNull(response.getProject());
+        }
     }
 
     @DisplayName("insert todo")
@@ -40,7 +42,9 @@ public class TodoServiceIntegrationTest {
                         .projectId(1L)
                 .build());
         List<TodoDto.Response> todoList = todoService.getAllTodoList();
-        System.out.println(todoList);
-
+        for(TodoDto.Response response : todoList){
+            assertNotNull(response);
+            assertNotNull(response.getProject());
+        }
     }
 }

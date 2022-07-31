@@ -8,6 +8,7 @@ import todo.schedule.management.repository.TodoMapper;
 import todo.schedule.management.service.TodoService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TodoServiceImpl implements TodoService {
@@ -38,21 +39,18 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public List<TodoDto.Response> getAllTodoList() {
-        System.out.println("@@@@@@@@@@@@@");
-//        List<Todo> todoList = todoMapper.findAll();
-//        System.out.println(todoList);
-//        return todoList.stream().map(this::toDto).collect(Collectors.toList());
-        return null;
+        List<Todo> todoList = todoMapper.findAll();
+        return todoList.stream().map(this::toDto).collect(Collectors.toList());
     }
 
 
     @Override
     public void insertTodo(TodoDto.Request todo) {
-//        int result = todoMapper.insertTodo(toEntity(todo));
+        int result = todoMapper.insertTodo(toEntity(todo));
     }
 
     @Override
     public void deleteTodo(Long id) {
-//        int result = todoMapper.deleteTodo(id);
+        int result = todoMapper.deleteTodo(id);
     }
 }

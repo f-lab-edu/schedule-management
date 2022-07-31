@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="todo.schedule.management.repository.TodoMapper">
+
+    <resultMap id="todoMap" type="todo.schedule.management.entity.Todo">
+        <id property="id" column="id" />
+        <result property="todo" column="todo" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+        <association property="project" column="project_id" select="projectMapSelect"/>
+    </resultMap>
+
+
+    <resultMap id="projectMapNoTodoList" type="todo.schedule.management.entity.Project">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+    <select id="projectMapSelect"
+            resultMap="projectMapNoTodoList" parameterType="java.lang.Long">
+        select * from project
+        where id = #{id, jdbcType=BIGINT}
+    </select>
+    <select id="findAll" resultMap="todoMap">
+        select * from todo
+    </select>
+    <insert id="insertTodo" parameterType="todo.schedule.management.entity.Todo">
+        insert into todo (todo, project_id) values (#{todo}, #{project.id})
+    </insert>
+    <delete id="deleteTodo">
+        delete from todo where id=#{id}
+    </delete>
+
+</mapper>

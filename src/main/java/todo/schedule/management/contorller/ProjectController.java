@@ -1,4 +1,4 @@
-package todo.schedule.management.todoapplication.project.contorller;
+package todo.schedule.management.contorller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

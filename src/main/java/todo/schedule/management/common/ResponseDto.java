@@ -1,4 +1,4 @@
-package todo.schedule.management.todoapplication.common;
+package todo.schedule.management.common;
 
 import lombok.Builder;
 

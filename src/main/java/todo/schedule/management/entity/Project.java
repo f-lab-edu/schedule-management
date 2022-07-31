@@ -1,7 +1,6 @@
-package todo.schedule.management.todoapplication.project.entity;
+package todo.schedule.management.entity;
 
 import lombok.*;
-import todo.schedule.management.todoapplication.todo.entity.Todo;
 
 import java.time.LocalDateTime;
 import java.util.List;

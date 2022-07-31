@@ -1,9 +1,10 @@
-package todo.schedule.management.todoapplication.config;
+package todo.schedule.management.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -16,7 +17,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 
 @Configuration
-@MapperScan(value = "todo.schedule.management.todoapplication.*", sqlSessionFactoryRef = "SqlSessionFactory")
+@MapperScan(value = "todo.schedule.management.repository", sqlSessionFactoryRef = "SqlSessionFactory")
 public class MyBatisConfig {
     @Value("${spring.datasource.mapper-locations}")
     String mapperPath;

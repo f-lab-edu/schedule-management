@@ -1,7 +1,6 @@
-package todo.schedule.management.todoapplication.todo.dto;
+package todo.schedule.management.dto;
 
 import lombok.*;
-import todo.schedule.management.todoapplication.common.ResponseDto;
 
 public class TodoDto {
 

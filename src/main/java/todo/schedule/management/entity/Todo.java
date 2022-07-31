@@ -1,9 +1,6 @@
-package todo.schedule.management.todoapplication.todo.entity;
+package todo.schedule.management.entity;
 
 import lombok.*;
-import todo.schedule.management.todoapplication.project.entity.Project;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Builder // Not recommend to use like this

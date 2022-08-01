@@ -11,7 +11,8 @@
                     select="getTodoListById" />
     </resultMap>
 
-    <select id="getTodoListById" resultType="todo.schedule.management.entity.Todo">
+<!--    <select id="getTodoListById" resultType="todo.schedule.management.entity.Todo">-->
+    <select id="getTodoListById" resultMap="todoMap">
         select * from `todo` where `todo`.project_id=#{id}
     </select>
 
@@ -25,5 +26,14 @@
     <select id="findById" resultMap="projectMap">
         select * from project where `project`.id=#{id}
     </select>
+    <select id="findAll" resultMap="projectMap">
+        select * from project
+    </select>
+    <insert id="insertProject" parameterType="todo.schedule.management.entity.Project">
+        insert into project (name) values (#{name})
+    </insert>
+    <delete id="deleteProject">
+        delete from project where id=#{id}
+    </delete>
 
 </mapper>

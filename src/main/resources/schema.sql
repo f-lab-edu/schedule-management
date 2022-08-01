@@ -16,5 +16,5 @@ CREATE TABLE IF NOT EXISTS todo(
     `updated_at` datetime default current_timestamp on update current_timestamp,
     `project_id` bigint,
     primary key(`id`),
-    foreign key(`project_id`) references `project`(`id`)
+    foreign key(`project_id`) references `project`(`id`) on delete cascade
 ) engine=InnoDB;

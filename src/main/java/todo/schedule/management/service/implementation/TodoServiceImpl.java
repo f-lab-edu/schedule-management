@@ -24,8 +24,10 @@ public class TodoServiceImpl implements TodoService {
         return TodoDto.Response.builder()
                 .id(todo.getId())
                 .todo(todo.getTodo())
-                .projectId(todo.getProject().getId())
-                .project(todo.getProject().getName())
+                .projectId(todo.getProject() == null ? null : todo.getProject().getId())
+                .project(todo.getProject() == null ? null : todo.getProject().getName())
+                .createdAt(todo.getCreatedAt().toString())
+                .updatedAt(todo.getUpdatedAt().toString())
                 .build();
     }
 

@@ -2,6 +2,8 @@ package todo.schedule.management.entity;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Builder // Not recommend to use like this
 @AllArgsConstructor
@@ -10,7 +12,7 @@ import lombok.*;
 public class Todo {
     private Long id;
     private String todo;
-    private String createdAt;
-    private String updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private Project project;
 }

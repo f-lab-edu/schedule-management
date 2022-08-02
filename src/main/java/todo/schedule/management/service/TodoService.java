@@ -11,5 +11,6 @@ public interface TodoService {
     Todo toEntity(TodoDto.Request todo);
     List<TodoDto.Response> getAllTodoList();
     void insertTodo(TodoDto.Request todo);
+    void updateTodo(TodoDto.Request todo);
     void deleteTodo(Long id);
 }

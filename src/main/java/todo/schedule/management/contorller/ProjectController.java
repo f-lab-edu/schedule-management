@@ -44,7 +44,7 @@ public class ProjectController {
         return ResponseEntity.ok().body(ResponseDto.<String>builder().data("success").build());
     }
 
-    @PostMapping("/update-name/{id}")
+    @PostMapping("/update-name")
     ResponseEntity<ResponseDto<String>> updateProject(@RequestBody ProjectDto.Request projectDto){
         projectService.updateProject(projectDto);
         return ResponseEntity.ok().body(ResponseDto.<String>builder().data("success").build());

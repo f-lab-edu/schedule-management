@@ -52,6 +52,11 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
+    public void updateTodo(TodoDto.Request todo) {
+        int result = todoMapper.updateTodo(toEntity(todo));
+    }
+
+    @Override
     public void deleteTodo(Long id) {
         int result = todoMapper.deleteTodo(id);
     }

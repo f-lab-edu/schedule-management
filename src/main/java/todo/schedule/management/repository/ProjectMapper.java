@@ -13,5 +13,6 @@ public interface ProjectMapper {
     Project findById(Long id);
     List<Project> findAll();
     int insertProject(Project project);
+    int updateProject(Project project);
     int deleteProject(Long id);
 }

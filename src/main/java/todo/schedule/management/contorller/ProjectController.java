@@ -44,6 +44,12 @@ public class ProjectController {
         return ResponseEntity.ok().body(ResponseDto.<String>builder().data("success").build());
     }
 
+    @PostMapping("/update-name/{id}")
+    ResponseEntity<ResponseDto<String>> updateProject(@RequestBody ProjectDto.Request projectDto){
+        projectService.updateProject(projectDto);
+        return ResponseEntity.ok().body(ResponseDto.<String>builder().data("success").build());
+    }
+
     @PostMapping("/deletion-id/{id}")
     ResponseEntity<ResponseDto<String>> deleteProject(@PathVariable Long id){
         projectService.deleteProject(id);

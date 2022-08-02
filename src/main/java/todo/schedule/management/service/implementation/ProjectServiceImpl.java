@@ -62,6 +62,11 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public void updateProject(ProjectDto.Request projectDto) {
+        projectMapper.updateProject(toEntity(projectDto));
+    }
+
+    @Override
     public void deleteProject(Long id) {
         projectMapper.deleteProject(id);
     }

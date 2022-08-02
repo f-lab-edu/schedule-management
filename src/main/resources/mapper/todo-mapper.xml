@@ -28,6 +28,9 @@
     <insert id="insertTodo" parameterType="todo.schedule.management.entity.Todo">
         insert into todo (todo, project_id) values (#{todo}, #{project.id})
     </insert>
+    <update id="updateTodo" parameterType="todo.schedule.management.entity.Todo">
+        update todo set todo=#{todo} where id=#{id}
+    </update>
     <delete id="deleteTodo">
         delete from todo where id=#{id}
     </delete>

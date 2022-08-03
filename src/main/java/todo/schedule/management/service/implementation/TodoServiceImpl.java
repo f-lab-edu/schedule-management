@@ -45,10 +45,21 @@ public class TodoServiceImpl implements TodoService {
         return todoList.stream().map(this::toDto).collect(Collectors.toList());
     }
 
+    @Override
+    public TodoDto.Response getTodo(Long id) {
+        return toDto(todoMapper.findById(id));
+    }
 
     @Override
     public void insertTodo(TodoDto.Request todo) {
         int result = todoMapper.insertTodo(toEntity(todo));
+    }
+
+    @Override
+    public void updateTodo(TodoDto.Request todo) {
+        Todo target = toEntity(todo);
+        target.setId(todo.getId());
+        int result = todoMapper.updateTodo(target);
     }
 
     @Override

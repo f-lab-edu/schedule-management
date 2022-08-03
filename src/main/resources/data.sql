@@ -1,2 +1,12 @@
 INSERT INTO `project` (name) values ('test1');
+INSERT INTO `project` (name) values ('test2');
+INSERT INTO `project` (name) values ('test3');
+INSERT INTO `project` (name) values ('test4');
 INSERT INTO `todo` (`todo`, `project_id`) VALUES ('todo_test1', '1');
+INSERT INTO `todo` (`todo`, `project_id`) VALUES ('todo_test2', '1');
+INSERT INTO `todo` (`todo`, `project_id`) VALUES ('todo_test3', '2');
+INSERT INTO `todo` (`todo`, `project_id`) VALUES ('todo_test4', '2');
+INSERT INTO `todo` (`todo`, `project_id`) VALUES ('todo_test5', '3');
+INSERT INTO `todo` (`todo`, `project_id`) VALUES ('todo_test6', '3');
+INSERT INTO `todo` (`todo`, `project_id`) VALUES ('todo_test7', '4');
+INSERT INTO `todo` (`todo`, `project_id`) VALUES ('todo_test8', '4');

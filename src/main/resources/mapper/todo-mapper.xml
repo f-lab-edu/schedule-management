@@ -22,12 +22,19 @@
         select * from project
         where id = #{id, jdbcType=BIGINT}
     </select>
+
+    <select id="findById" resultMap="todoMap">
+        select * from todo where `todo`.id=#{id}
+    </select>
     <select id="findAll" resultMap="todoMap">
         select * from todo
     </select>
     <insert id="insertTodo" parameterType="todo.schedule.management.entity.Todo">
         insert into todo (todo, project_id) values (#{todo}, #{project.id})
     </insert>
+    <update id="updateTodo" parameterType="todo.schedule.management.entity.Todo">
+        update todo set todo=#{todo} where id=#{id}
+    </update>
     <delete id="deleteTodo">
         delete from todo where id=#{id}
     </delete>

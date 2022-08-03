@@ -10,6 +10,8 @@ public interface TodoService {
     TodoDto.Response toDto(Todo todo);
     Todo toEntity(TodoDto.Request todo);
     List<TodoDto.Response> getAllTodoList();
+    TodoDto.Response getTodo(Long id);
     void insertTodo(TodoDto.Request todo);
+    void updateTodo(TodoDto.Request todo);
     void deleteTodo(Long id);
 }

@@ -32,6 +32,9 @@
     <insert id="insertProject" parameterType="todo.schedule.management.entity.Project">
         insert into project (name) values (#{name})
     </insert>
+    <update id="updateProject" parameterType="todo.schedule.management.entity.Project">
+        update project set name=#{name} where id=#{id}
+    </update>
     <delete id="deleteProject">
         delete from project where id=#{id}
     </delete>

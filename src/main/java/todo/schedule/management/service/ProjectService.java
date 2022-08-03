@@ -11,5 +11,6 @@ public interface ProjectService {
     ProjectDto.Response getProject(Long id);
     List<ProjectDto.Response> getAllProjectList();
     void insertProject(ProjectDto.Request projectDto);
+    void updateProject(ProjectDto.Request projectDto);
     void deleteProject(Long id);
 }

@@ -1,6 +1,5 @@
 package todo.schedule.management.contorller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import todo.schedule.management.common.ResponseDto;
@@ -17,11 +16,6 @@ public class ProjectController {
 
     public ProjectController(ProjectService projectService) {
         this.projectService = projectService;
-    }
-
-    @GetMapping("/hello")
-    String hello(){
-        return "hello";
     }
 
     @GetMapping("/id/{id}")
@@ -41,6 +35,12 @@ public class ProjectController {
     @PostMapping("")
     ResponseEntity<ResponseDto<String>> insertProject(@RequestBody ProjectDto.Request projectDto){
         projectService.insertProject(projectDto);
+        return ResponseEntity.ok().body(ResponseDto.<String>builder().data("success").build());
+    }
+
+    @PostMapping("/update-name")
+    ResponseEntity<ResponseDto<String>> updateProject(@RequestBody ProjectDto.Request projectDto){
+        projectService.updateProject(projectDto);
         return ResponseEntity.ok().body(ResponseDto.<String>builder().data("success").build());
     }
 

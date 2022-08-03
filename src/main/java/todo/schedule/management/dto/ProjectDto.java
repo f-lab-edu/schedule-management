@@ -1,9 +1,7 @@
 package todo.schedule.management.dto;
 
 import lombok.*;
-import todo.schedule.management.entity.Todo;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class ProjectDto {
@@ -14,6 +12,7 @@ public class ProjectDto {
     @NoArgsConstructor
     @ToString
     public static class Request{
+        Long id;
         String name;
     }
     @Getter

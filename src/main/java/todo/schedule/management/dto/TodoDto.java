@@ -2,8 +2,6 @@ package todo.schedule.management.dto;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
-
 public class TodoDto {
 
     @Getter
@@ -11,6 +9,7 @@ public class TodoDto {
     @ToString
     @AllArgsConstructor
     public static class Request{
+        Long id;
         String todo;
         Long projectId;
     }

@@ -22,6 +22,10 @@
         select * from project
         where id = #{id, jdbcType=BIGINT}
     </select>
+
+    <select id="findById" resultMap="todoMap">
+        select * from todo where `todo`.id=#{id}
+    </select>
     <select id="findAll" resultMap="todoMap">
         select * from todo
     </select>

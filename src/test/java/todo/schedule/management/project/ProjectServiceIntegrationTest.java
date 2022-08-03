@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import todo.schedule.management.dto.ProjectDto;
-import todo.schedule.management.entity.Project;
-import todo.schedule.management.repository.ProjectMapper;
 import todo.schedule.management.service.ProjectService;
 
 import java.util.List;
@@ -17,12 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class ProjectServiceIntegrationTest {
     private final ProjectService projectService;
-    private final ProjectMapper projectMapper;
 
     @Autowired
-    public ProjectServiceIntegrationTest(ProjectService projectService, ProjectMapper projectMapper) {
+    public ProjectServiceIntegrationTest(ProjectService projectService) {
         this.projectService = projectService;
-        this.projectMapper = projectMapper;
     }
 
     @BeforeEach
@@ -50,6 +46,21 @@ public class ProjectServiceIntegrationTest {
 
     }
 
+    @DisplayName("update project")
+    @Test
+    void updateProject() {
+        final String projectName = "updated";
+        List<ProjectDto.Response> beforeProjectList = projectService.getAllProjectList();
+        ProjectDto.Response temp = beforeProjectList.get(0);
+        ProjectDto.Request target = ProjectDto.Request.builder().id(temp.getId()).name(projectName).build();
+
+        projectService.updateProject(target);
+
+        ProjectDto.Response project = projectService.getProject(temp.getId());
+        assertEquals(projectName, project.getName());
+
+    }
+
     @DisplayName("delete project")
     @Test
     void deleteProject() {
@@ -57,7 +68,7 @@ public class ProjectServiceIntegrationTest {
         int count = beforeProjectList.size();
         projectService.deleteProject(1L);
         List<ProjectDto.Response> projectList = projectService.getAllProjectList();
-        assertEquals(count - 1, projectList.size());
+        assertEquals(Math.max(count -1 , 0), projectList.size());
 
     }
 }

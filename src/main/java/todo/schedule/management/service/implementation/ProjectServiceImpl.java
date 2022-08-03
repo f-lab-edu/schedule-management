@@ -63,7 +63,9 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public void updateProject(ProjectDto.Request projectDto) {
-        projectMapper.updateProject(toEntity(projectDto));
+        Project target =toEntity(projectDto);
+        target.setId(projectDto.getId());
+        projectMapper.updateProject(target);
     }
 
     @Override

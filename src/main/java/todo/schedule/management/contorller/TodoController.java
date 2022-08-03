@@ -3,7 +3,6 @@ package todo.schedule.management.contorller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import todo.schedule.management.common.ResponseDto;
-import todo.schedule.management.dto.ProjectDto;
 import todo.schedule.management.dto.TodoDto;
 import todo.schedule.management.service.TodoService;
 
@@ -19,11 +18,16 @@ public class TodoController {
         this.todoService = todoService;
     }
 
+    @GetMapping("/id/{id}")
+    ResponseEntity<ResponseDto<TodoDto.Response>> getTodo(@PathVariable Long id){
+        return ResponseEntity.ok().body(ResponseDto.<TodoDto.Response>builder().data(
+            todoService.getTodo(id)
+        ).build());
+    }
+
     @GetMapping("/list")
     ResponseEntity<ResponseDto<List<TodoDto.Response>>> getAllTodoList() {
 
-//        return ResponseEntity.ok().body(TodoDto.Response.builder()
-//                .id(1L).todo("test").build());
         return ResponseEntity.ok().body(ResponseDto.<List<TodoDto.Response>>builder().data(
                 todoService.getAllTodoList()
         ).build());
